@@ -1,0 +1,39 @@
+{
+  "Understanding Disabilities": {
+    "short_description": "Learn about different types of disabilities.",
+    "step_by_step": [
+      "Step 1: Learn the basic types of disabilities.",
+      "Step 2: Understand accessibility needs.",
+      "Step 3: Learn communication tips."
+    ],
+    "do_and_dont": [
+      "Do respect personal space.",
+      "Do not assume abilities.",
+      "Do communicate clearly."
+    ],
+    "helpline_numbers": [
+      "1800-123-4567",
+      "1800-987-6543"
+    ],
+    "video_url": "",
+    "image_url": ""
+  },
+  "Hospital Navigation": {
+    "short_description": "Guide PwD through hospital facilities.",
+    "step_by_step": [
+      "Step 1: Help with form filling.",
+      "Step 2: Guide to different departments.",
+      "Step 3: Coordinate with staff for assistance."
+    ],
+    "do_and_dont": [
+      "Do be patient.",
+      "Do not rush them.",
+      "Do provide clear directions."
+    ],
+    "helpline_numbers": [
+      "1800-222-3333"
+    ],
+    "video_url": "",
+    "image_url": ""
+  }
+}

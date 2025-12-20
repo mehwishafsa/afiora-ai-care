@@ -1,0 +1,126 @@
+{
+"modules": [
+{
+"title": "How to Assist PwD Respectfully",
+"content": [
+"Always ask before helping.",
+"Respect personal space and privacy.",
+"Treat PwD with dignity and patience.",
+"Use polite language and tone.",
+"Avoid making assumptions about abilities."
+]
+},
+{
+"title": "Dos and Don’ts",
+"content": [
+"Do speak clearly and slowly.",
+"Do listen carefully to their needs.",
+"Do maintain eye contact.",
+"Don’t rush or push them.",
+"Don’t ignore their responses or preferences."
+]
+},
+{
+"title": "Emergency Handling",
+"content": [
+"Know local emergency numbers (100, 108).",
+"Stay calm and assess the situation.",
+"Call for medical help if required.",
+"Follow basic first-aid procedures.",
+"Ensure the PwD is safe and comfortable."
+]
+},
+{
+"title": "Communication Tips",
+"content": [
+"Use simple and clear language.",
+"Speak slowly and repeat if necessary.",
+"Use gestures if needed.",
+"Listen actively and patiently.",
+"Confirm understanding before taking action."
+]
+}
+],
+"quiz": [
+{
+"question": "Before assisting a PwD, you should:",
+"options": [
+"Start immediately",
+"Ask for permission",
+"Assume they need help",
+"Ignore them"
+],
+"correct_answer": "Ask for permission"
+},
+{
+"question": "Which is a proper 'Do' when helping PwD?",
+"options": [
+"Rush them",
+"Be patient",
+"Ignore their response",
+"Make assumptions"
+],
+"correct_answer": "Be patient"
+},
+{
+"question": "If a medical emergency occurs, you should:",
+"options": [
+"Panic",
+"Stay calm",
+"Leave immediately",
+"Shout for attention only"
+],
+"correct_answer": "Stay calm"
+},
+{
+"question": "When communicating with PwD, it is best to:",
+"options": [
+"Use complex language",
+"Maintain eye contact",
+"Interrupt frequently",
+"Ignore gestures"
+],
+"correct_answer": "Maintain eye contact"
+},
+{
+"question": "What should you always respect when assisting PwD?",
+"options": [
+"Their personal space",
+"Their speed",
+"Their friends",
+"Their possessions only"
+],
+"correct_answer": "Their personal space"
+},
+{
+"question": "In India, which number is commonly used for medical emergencies?",
+"options": [
+"100",
+"101",
+"108",
+"112"
+],
+"correct_answer": "108"
+},
+{
+"question": "When PwD does not understand instructions, you should:",
+"options": [
+"Repeat clearly",
+"Force them",
+"Ignore",
+"Rush"
+],
+"correct_answer": "Repeat clearly"
+},
+{
+"question": "Which is a 'Don't' when assisting PwD?",
+"options": [
+"Listen carefully",
+"Rushing or pushing",
+"Speak politely",
+"Maintain patience"
+],
+"correct_answer": "Rushing or pushing"
+}
+]
+}

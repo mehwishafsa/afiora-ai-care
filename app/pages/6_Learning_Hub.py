@@ -2,88 +2,53 @@ import streamlit as st
 import json
 from pathlib import Path
 
-
+# ---------------- Fallback Data ----------------
 def get_fallback_data():
     return {
-        "Preparing for a Hospital Visit": {
-            "short_description": "Preparing in advance can make hospital visits less stressful and more comfortable.",
-            "step_by_step": [
-                "Carry all medical records and prescriptions",
-                "Keep emergency contact numbers ready",
-                "Arrive early to avoid rush",
-                "Inform staff about any specific support you need"
-            ],
-            "do_and_dont": [
-                "Do ask for assistance if needed",
-                "Do keep important documents in one folder",
-                "Don’t hesitate to explain your needs",
-                "Don’t skip meals or medicines before visiting"
-            ],
-            "helpline_numbers": []
-        },
-        "Disability Rights (India)": {
-            "short_description": "Persons with Disabilities have legal rights to equal access and dignity in healthcare.",
-            "step_by_step": [
-                "Know your rights under the RPwD Act, 2016",
-                "Ask for accessible facilities in hospitals",
-                "Report discrimination if it occurs"
-            ],
-            "do_and_dont": [
-                "Do carry disability ID if available",
-                "Do speak up if facilities are inaccessible",
-                "Don’t accept denial of basic services",
-                "Don’t hesitate to seek help from authorities"
-            ],
-            "helpline_numbers": ["1800-599-0019"]
-        },
-        "Healthcare Schemes – Basics": {
-            "short_description": "Government healthcare schemes can reduce medical expenses for PwD.",
-            "step_by_step": [
-                "Check eligibility for schemes like Ayushman Bharat",
-                "Keep Aadhaar and disability certificate ready",
-                "Apply through official portals or help desks"
-            ],
-            "do_and_dont": [
-                "Do verify scheme details from official sources",
-                "Do keep copies of submitted documents",
-                "Don’t rely on unofficial agents",
-                "Don’t share personal details unnecessarily"
-            ],
-            "helpline_numbers": ["14555"]
-        },
-        "Emergency Tips": {
-            "short_description": "Quick action during emergencies can save lives.",
-            "step_by_step": [
-                "Call emergency services immediately",
-                "Stay calm and follow instructions",
-                "Inform caregivers or family members"
-            ],
-            "do_and_dont": [
-                "Do keep emergency numbers saved",
-                "Do provide clear location details",
-                "Don’t panic",
-                "Don’t delay calling for help"
-            ],
-            "helpline_numbers": ["112", "108"]
-        },
-        "Accessibility Inside Hospitals": {
-            "short_description": "Hospitals should provide accessible infrastructure and support.",
-            "step_by_step": [
-                "Ask for ramps, lifts, or wheelchairs",
-                "Request priority seating if required",
-                "Seek assistance from hospital staff"
-            ],
-            "do_and_dont": [
-                "Do ask for reasonable accommodation",
-                "Do report broken accessibility features",
-                "Don’t struggle alone",
-                "Don’t feel embarrassed asking for help"
-            ],
-            "helpline_numbers": []
-        }
+        "learning_hub": [
+            {
+                "title": "Understanding Disabilities",
+                "short_description": "Learn about different types of disabilities.",
+                "step_by_step": [
+                    "Step 1: Learn the basic types of disabilities.",
+                    "Step 2: Understand accessibility needs.",
+                    "Step 3: Learn communication tips."
+                ],
+                "do_and_dont": [
+                    "Do respect personal space.",
+                    "Do not assume abilities.",
+                    "Do communicate clearly."
+                ],
+                "helpline_numbers": [
+                    "1800-123-4567",
+                    "1800-987-6543"
+                ],
+                "video_url": "",
+                "image_url": ""
+            },
+            {
+                "title": "Hospital Navigation",
+                "short_description": "Guide PwD through hospital facilities.",
+                "step_by_step": [
+                    "Step 1: Help with form filling.",
+                    "Step 2: Guide to different departments.",
+                    "Step 3: Coordinate with staff for assistance."
+                ],
+                "do_and_dont": [
+                    "Do be patient.",
+                    "Do not rush them.",
+                    "Do provide clear directions."
+                ],
+                "helpline_numbers": [
+                    "1800-222-3333"
+                ],
+                "video_url": "",
+                "image_url": ""
+            }
+        ]
     }
 
-
+# ---------------- Load JSON Data ----------------
 def load_learning_hub_data():
     data_path = Path("data/learning_hub.json")
     try:
@@ -91,21 +56,17 @@ def load_learning_hub_data():
             return get_fallback_data()
         with open(data_path, "r", encoding="utf-8") as f:
             data = json.load(f)
-        required_keys = {"short_description", "step_by_step", "do_and_dont"}
-        for section, content in data.items():
-            if not required_keys.issubset(content.keys()):
+        # Validate minimal required keys
+        for section in data.get("learning_hub", []):
+            if not all(k in section for k in ["title", "short_description", "step_by_step", "do_and_dont"]):
                 return get_fallback_data()
         return data
     except Exception:
         return get_fallback_data()
 
-
+# ---------------- Accessibility Styles ----------------
 def apply_accessibility_styles(font_size, high_contrast):
-    size_map = {
-        "Small": "14px",
-        "Medium": "16px",
-        "Large": "18px"
-    }
+    size_map = {"Small": "14px", "Medium": "16px", "Large": "18px"}
     text_color = "#000000"
     bg_color = "#ffffff"
     if high_contrast:
@@ -123,7 +84,7 @@ def apply_accessibility_styles(font_size, high_contrast):
     """
     st.markdown(css, unsafe_allow_html=True)
 
-
+# ---------------- Streamlit Setup ----------------
 st.set_page_config(page_title="Learning Hub – Afiora", layout="wide")
 
 st.sidebar.header("Accessibility Settings")
@@ -135,6 +96,7 @@ apply_accessibility_styles(font_size, high_contrast)
 st.title("Learning Hub – Afiora")
 st.markdown("Simple step-by-step guides for PwD users and caregivers")
 
+# Quick Actions
 with st.container():
     st.subheader("Quick Actions")
     if st.button("Emergency Help"):
@@ -149,26 +111,33 @@ with st.container():
         "- Don’t hesitate to ask hospital staff for help"
     )
 
+# Load learning hub data
 data = load_learning_hub_data()
 
-for section_title in [
-    "Preparing for a Hospital Visit",
-    "Disability Rights (India)",
-    "Healthcare Schemes – Basics",
-    "Emergency Tips",
-    "Accessibility Inside Hospitals"
-]:
-    content = data.get(section_title, {})
-    with st.expander(section_title):
-        st.markdown(content.get("short_description", ""))
+# Display sections dynamically
+for section in data.get("learning_hub", []):
+    title = section.get("title", "No Title")
+    with st.expander(title):
+        st.markdown(section.get("short_description", ""))
+        
         st.markdown("**Steps to follow:**")
-        for step in content.get("step_by_step", []):
+        for step in section.get("step_by_step", []):
             st.markdown(f"- {step}")
+        
         st.markdown("**Do and Don’t:**")
-        for item in content.get("do_and_dont", []):
+        for item in section.get("do_and_dont", []):
             st.markdown(f"- {item}")
-        helplines = content.get("helpline_numbers", [])
+        
+        helplines = section.get("helpline_numbers", [])
         if helplines:
             st.markdown("**Helpline Numbers:**")
             for num in helplines:
                 st.markdown(f"- {num}")
+        
+        # Display optional video/image
+        video_url = section.get("video_url")
+        image_url = section.get("image_url")
+        if video_url:
+            st.video(video_url)
+        if image_url:
+            st.image(image_url, use_column_width=True)
