@@ -1,6 +1,13 @@
 import streamlit as st
-import json
 from pathlib import Path
+import json
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
+with open(DATA_DIR / "learning_hub.json", "r", encoding="utf-8") as f:
+    learning_data = json.load(f)
+
 
 # ---------------- Fallback Data ----------------
 def get_fallback_data():

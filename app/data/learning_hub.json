@@ -35,5 +35,16 @@
     ],
     "video_url": "",
     "image_url": ""
+    [
+  {
+    "title": "Hospital Visit Guide",
+    "description": "Steps to prepare for a hospital visit."
+  },
+  {
+    "title": "Emergency Readiness",
+    "description": "What to do in medical emergencies."
   }
+]
+
+}
 }

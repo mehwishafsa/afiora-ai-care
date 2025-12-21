@@ -1,6 +1,13 @@
-import streamlit as st
+from pathlib import Path
 import json
-import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent   # points to /app
+DATA_DIR = BASE_DIR / "data"
+
+
+with open(DATA_DIR / "hospitals.json", "r", encoding="utf-8") as f:
+    hospitals = json.load(f)
+
 
 def load_translations(lang):
     try:

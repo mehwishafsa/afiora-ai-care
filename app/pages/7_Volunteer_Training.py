@@ -2,6 +2,10 @@ import streamlit as st
 import json
 import os
 
+with open(DATA_DIR / "volunteer_training.json", "r", encoding="utf-8") as f:
+    volunteer_data = json.load(f)
+
+
 st.set_page_config(
     page_title="Volunteer Training",
     layout="centered"
